@@ -1,0 +1,67 @@
+<div class='card'>
+    <div class='card-header'>  
+       {{pageTitle}}
+    </div>
+</div>
+<div class='card-body'>
+    <div class='row'>
+        <div class='col-md-2'> Filter By:</div>
+        <div class='col-md-4'>
+            <input type='text' [(ngModel)]='listFilter'>
+        </div>
+    </div>
+    <div>
+        <label>Language </label>
+        <select (change)="filterLanguage($event.target.value)">
+          <option value="0">--All--</option>
+          <option *ngFor="let language of languageList" value={{language.Name}}>
+            {{language.Name}}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Location </label>
+        <select (change)="filterLocation($event.target.value)"> 
+          <option value="0">--All--</option>
+          <option *ngFor="let location of locationList" value={{location.Name}}>
+            {{location.Name}}
+          </option>
+        </select>
+      </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <h4>Filtered By: {{listFilter}}</h4>
+        </div>
+    </div>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='movies && movies.length'>
+            <thead>
+                <tr>                   
+                    <th>Movie Name</th>
+                    <th>Language</th>
+                    <th>Location</th>
+                    <th>Listing Type</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let movie of filteredMovies'>                    
+                    <td>
+                        <a [routerLink]="['/movies',movie.imdbID]">{{ movie.Title }} </a>
+                    </td>
+                    <td>{{ movie.Language}}</td>
+                    <td>{{ movie.Location }}</td>
+                    <td>{{ movie.listingType}}</td>
+                    <td>{{ movie.imdbRating}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <main>
+    	<section>
+        	<router-outlet></router-outlet>
+    	</section>
+	</main>
+
+</div>
