@@ -1,0 +1,46 @@
+<div class='card'>
+    <div class='card-header'>  
+       <!-- {{pageTitle}} -->
+       Movie Details
+    </div>
+</div>
+<div class='card-body'>
+    <div class='table-responsive'>
+        <table style="width: 500px;">           
+            <tbody>
+                <tr>   
+                    <td>Movie Title</td>                 
+                    <td>{{ movie.Title }} </td>                                       
+                </tr>
+                <tr>                    
+                    <td>Language</td>            
+                    <td>{{ movie.Language}}</td>                    
+                </tr>
+                <tr>    
+                    <td>Location</td>
+                    <td>{{ movie.Location }}</td>
+                </tr>
+                <tr>    
+                    <td>Listing Type</td>
+                    <td>{{ movie.listingType}}</td>
+                </tr>
+                <tr>
+                    <td>IMDB Rating</td>
+                    <td>{{ movie.imdbRating}}</td>
+                </tr>
+                <tr>                    
+                    <td>Plot </td>
+                    <td>{{ movie.Plot}}</td>                   
+                </tr>
+                <tr>                    
+                    <td>Poster </td>
+                    <td>{{ movie.Poster}}</td>  
+                </tr>
+                <tr>                    
+                    <td>Stills </td>
+                    <td>{{ movie.Stills}}</td>                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
