@@ -22,4 +22,11 @@ describe('Movie.DetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call the lifecycle hook: ngOnInit', () => {
+    const spy = spyOn(component, 'ngOnInit');
+    component.ngOnInit();
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
