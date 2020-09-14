@@ -9,9 +9,8 @@ import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MoviesComponent,
-    //MovieDetailsComponent,
+    AppComponent, 
+    MoviesComponent,  
     routableComponents
   ],
   imports: [
