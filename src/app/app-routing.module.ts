@@ -4,9 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie.details/movie.details.component';
 
-const routes: Routes = [
-	{ path: '', pathMatch: 'full', redirectTo: 'movies' },
-	{ path: 'movies/:id', component: MovieDetailsComponent }
+const routes: Routes = [	
+	{ path: 'movies', component: MoviesComponent },
+	{ path: 'movies/:id', component: MovieDetailsComponent },
+	{ path: '', pathMatch: 'full', redirectTo: 'movies' }	
 ];
 
 

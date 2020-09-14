@@ -6,11 +6,11 @@
 </div>
 <div class='card-body'>
     <div class='table-responsive'>
-        <table style="width: 500px;">           
+        <table style="width: 1000px;">           
             <tbody>
                 <tr>   
-                    <td>Movie Title</td>                 
-                    <td>{{ movie.Title }} </td>                                       
+                    <td style="width: 200px;">Movie Title</td>                 
+                    <td style="width: 800px;">{{ movie.Title }} </td>                                       
                 </tr>
                 <tr>                    
                     <td>Language</td>            
@@ -34,7 +34,9 @@
                 </tr>
                 <tr>                    
                     <td>Poster </td>
-                    <td>{{ movie.Poster}}</td>  
+                    <td>                      
+                        <img height="200" width="200" class="brochure-poster" [src]="movie.Poster" />
+                    </td>  
                 </tr>
                 <tr>                    
                     <td>Stills </td>
@@ -43,4 +45,6 @@
             </tbody>
         </table>
     </div>
+    <input type="button" value="Back" (click)="gotoMovies()" />
 </div>
+ 

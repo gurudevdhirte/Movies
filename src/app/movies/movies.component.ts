@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  IMovie } from "./movie";
 import { MovieService } from "./movie.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -10,12 +11,11 @@ import { MovieService } from "./movie.service";
 export class MoviesComponent implements OnInit {
 
   pageTitle: string = 'Movies List';
-    // imageWidth: number = 50;
-    // imageMargin: number = 2;
-    // showImage: boolean =false;
-    //listFilter: string ='cart'; 
+    
     languageList: any;
     locationList: any;
+    public isMovie = true;
+    public isMovieDetail = false;
 
     _listFilter: string;
     get listFilter() :string {
@@ -23,31 +23,21 @@ export class MoviesComponent implements OnInit {
     }
     set listFilter(value :string) {
         this._listFilter= value;
-         this.filteredMovies = this.listFilter ? this.performFilter(this.listFilter) : this.movies;
-        //this.filteredProducts = this.products;
+         this.filteredMovies = this.listFilter ? this.performFilter(this.listFilter) : this.movies;        
     }
 
     filteredMovies : IMovie[];
-    movies: IMovie[] = [];
+    movies: IMovie[] = [];   
 
-    // toogleImage(): void{
-    //      this.showImage = !this.showImage
-    // }    
-
-    constructor(private movieService : MovieService)
+    constructor(private movieService : MovieService, private router: Router)
     {   
       this.getLanguages();   
       this.getLocations();      
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void {      
         this.movies = this.movieService.getMoviesList();
         this.filteredMovies = this.movies;     
-    }
-
-    onRatingClicked(message :string): void
-    {
-        this.pageTitle ='Movies List: ' + message;
     }
 
     performFilter(filterBy : string ) : IMovie[] {
@@ -72,7 +62,7 @@ export class MoviesComponent implements OnInit {
       {
           //this.filteredMovies = this.filteredMovies;
           this.filteredMovies = this.movies;
-          console.log(this.filteredMovies);
+          //console.log(this.filteredMovies);
       }
       else
       {
@@ -92,7 +82,14 @@ export class MoviesComponent implements OnInit {
         this.filteredMovies = this.movies;
         this.filteredMovies = this.filteredMovies.filter((item) => item.Location == filterVal);
     }
-}
+} 
+
+btnClick= function (id: string) {  
+  this.isMovie = false;
+  this.isMovieDetail = true;
+  console.log(this.isMovieDetail);  
+  this.router.navigateByUrl('/movies/'+ id);
+};
 
     languages = [
       {"Id": 1,"Name": "HINDI"},

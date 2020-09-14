@@ -1,32 +1,41 @@
-<div class='card'>
+<div class='card' *ngIf="isMovie">
     <div class='card-header'>  
        {{pageTitle}}
     </div>
 </div>
-<div class='card-body'>
+<div class='card-body' *ngIf="isMovie">
     <div class='row'>
         <div class='col-md-2'> Filter By:</div>
-        <div class='col-md-4'>
+        <div class='col-md-2'>
             <input type='text' [(ngModel)]='listFilter'>
         </div>
+        
     </div>
-    <div>
-        <label>Language </label>
-        <select (change)="filterLanguage($event.target.value)">
-          <option value="0">--All--</option>
-          <option *ngFor="let language of languageList" value={{language.Name}}>
-            {{language.Name}}
-          </option>
-        </select>
+    <!-- <br> -->
+
+    <div class='row'>
+        <div class='col-md-2'> <label>Language </label></div>
+        <div class='col-md-2'>
+            <select (change)="filterLanguage($event.target.value)">
+                <option value="0">--All--</option>
+                <option *ngFor="let language of languageList" value={{language.Name}}>
+                  {{language.Name}}
+                </option>
+              </select>
+        </div>
+        
       </div>
-      <div>
-        <label>Location </label>
-        <select (change)="filterLocation($event.target.value)"> 
-          <option value="0">--All--</option>
-          <option *ngFor="let location of locationList" value={{location.Name}}>
-            {{location.Name}}
-          </option>
-        </select>
+      <div class='row'>
+        <div class='col-md-2'> <label>Location </label></div>
+        <div class='col-md-2'>
+            <select (change)="filterLocation($event.target.value)"> 
+                <option value="0">--All--</option>
+                <option *ngFor="let location of locationList" value={{location.Name}}>
+                  {{location.Name}}
+                </option>
+              </select>
+        </div>
+        
       </div>
     <div class='row'>
         <div class='col-md-6'>
@@ -42,26 +51,26 @@
                     <th>Location</th>
                     <th>Listing Type</th>
                     <th>Rating</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor='let movie of filteredMovies'>                    
-                    <td>
-                        <a [routerLink]="['/movies',movie.imdbID]">{{ movie.Title }} </a>
+                    <td>                       
+                        {{ movie.Title}}
                     </td>
                     <td>{{ movie.Language}}</td>
                     <td>{{ movie.Location }}</td>
                     <td>{{ movie.listingType}}</td>
-                    <td>{{ movie.imdbRating}}</td>
-                    
+                    <td>{{ movie.imdbRating}}                        
+                    <td> <button type="button" (click)="btnClick(movie.imdbID);"> Details</button></td>
                 </tr>
             </tbody>
-        </table>
+        </table>      
     </div>
-    <main>
-    	<section>
-        	<router-outlet></router-outlet>
-    	</section>
-	</main>
+    
 
+</div>
+<div *ngIf="isMovieDetail">
+        <router-outlet></router-outlet>
 </div>

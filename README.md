@@ -1,27 +1,20 @@
-# MoviesApp
+# Application Homepage
+Application contains all the movies list along the search filter for Movie Title, a language filter and a location filter. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1.
+# Filters of Movies Application
+Using the Filter By filter to search the movies by Movie title. The search will work as we type the movie title.
 
-## Development server
+# Using the Language Filter
+ Select Hindi to filter all the movies by Hindi language and select English to search the movies by 
+English language. Selecting all will display all the movies for all languages. his filter will work independently and location filter will not apply.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Using the Location Filter
+Select location like Delhi, Bangalore, Mumbai, Chennai will filter the movies by location. 
+Selecting all will display all the movies for all locations. This filter will work independently and langauge filter will not apply.
 
-## Code scaffolding
+# Getting the Details of a movie
+Click on Details button for any movie displayed at every movie record and it will navigate to details of the movie and will display the poster image for every movie with other details.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Back Button
+Clicking on back button of Movie Details will navigate back to Movies list.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

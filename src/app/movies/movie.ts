@@ -1,5 +1,4 @@
-export interface IMovie{
-    //productId: number;
+export interface IMovie{   
     Language: string;
     Location : string;
     Plot : string;
